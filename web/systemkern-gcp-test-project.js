@@ -9,7 +9,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     return 'Hello Kotlin World';
   }
   function processRequest(req, res) {
-      var message = trimMargin('Pushed from Github<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.query.message: ' + req.query.message.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '<br>' + '\n' + '    ');
+      var message = trimMargin('Pushed from Github<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
   _.hello = hello;
