@@ -5,6 +5,7 @@ steps:
   - beta
   - functions
   - deploy
+  - function-1
   - --region=us-central1
   - --trigger-http
   - --source=build/
