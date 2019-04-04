@@ -1,5 +1,3 @@
-const kotlin = require('./kotlin');
-
 if (typeof kotlin === 'undefined') {
   throw new Error("Error loading module 'systemkern-gcp-test-project'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'systemkern-gcp-test-project'.");
 }
