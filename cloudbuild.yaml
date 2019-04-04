@@ -6,18 +6,8 @@ steps:
   - functions
   - deploy
   - function-1
-  - --region=us-central1
+  - --region=europe-west1 #europe-west1, europe-west2, us-central1, us-east1, asia-northeast1, asia-east2
+  - --runtime=nodejs8 #nodejs6 #nodejs8 #nodejs10 #(beta) #python37 #(Python 3.7) #go111 #Go 1.11
   - --trigger-http
   - --source=build/
-  - --entry-point=helloWorld # Function name
-
-- name: gcr.io/cloud-builders/gcloud
-  args:
-    - beta
-    - functions
-    - deploy
-    - function-2
-    - --region=us-central1
-    - --trigger-http
-    - --source=build/
     - --entry-point=helloWorld # Function name
