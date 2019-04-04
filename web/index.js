@@ -1,5 +1,5 @@
 const kotlin = require('./systemkern-gcp-test-project.js');
-const jsFunc = require('./sayHi.js');
+const jsFunc = require('./function.js');
 
 /**
  * Responds to any HTTP request.

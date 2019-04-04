@@ -6,7 +6,7 @@
  * @param {Object} req Express Request Object
  * @param {Object} res Express Request Object
  */
-const sayHi = () => {
+const someFunction = () => {
     return "Say Hi"
 };
-module.exports = sayHi;
+module.exports = someFunction;
