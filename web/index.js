@@ -18,8 +18,8 @@ exports.helloWorld = (req, res) => {
             'req.query.message: ' + req.query.message + '<br>' +
             'req.body.message: ' + req.body.message + '<br>' +
             'files: ' + files + '<br/>' +
-            'sayHi: ' + sayHi() + '<br/>' +
-            'kotlin Hello: ' + _.hello() + '<br/>';
+            'sayHi: ' + sayHi() + '<br/>';
+//            'kotlin Hello: ' + _.hello() + '<br/>';
 
         res.status(200).send(message);
     });
