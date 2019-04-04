@@ -12,7 +12,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   }
 
     function processBody(body) {
-        return new Response(200, trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |body: ' + body.toString() + '\n' + '        '));
+        return new Response(200, trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |body: ' + body + '\n' + '        '));
     }
 
     function Response(code, message) {

@@ -9,18 +9,23 @@ fun processRequest(req: dynamic, res: dynamic) {
         |req.query:         ${req.query}<br>
         |req.body:          ${req.body}<br>
     """.trimMargin()
-    //|req.body.message:  ${req.body.message}<br>
-    //|req.query.message: ${req.query.message}<br>
-
     res.status(200).send(message)
+
+    /*
+    Pushed from Github<br>
+    req:               [object Object]<br>
+    req.query:         [object Object]<br>
+    req.body:          [object Object]<br>
+    */
 }
+
 
 @JsName("processBody")
 fun processBody(body: dynamic): Response {
     return Response(200,
         """
         |Pushed from Github<br>
-        |body: ${body}
+        |body: ${body.unsafeCast<String>()}
         """.trimMargin()
     )
 }
