@@ -1,5 +1,5 @@
-defineModule('systemkern-gcp-test-project', require('./kotlin.js'));
-const kotlin = require('./systemkern-gcp-test-project.js');
+defineModule('kotlin', require('./kotlin.js'));
+const custom = require('./systemkern-gcp-test-project.js');
 const jsFunc = require('./function.js');
 
 /**
@@ -9,7 +9,7 @@ const jsFunc = require('./function.js');
  * @param {!express:Response} res HTTP response context.
  */
 exports.helloWorld = (req, res) => {
-    let message = kotlin.hello() + '<br/>' +
+    let message = custom.hello() + '<br/>' +
         'Pushed from Github<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
