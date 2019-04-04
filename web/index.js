@@ -13,7 +13,7 @@ exports.helloWorld = (req, res) => {
         'Pushed from Github<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
-        'sayHi: ' + jsFunc() + '<br/>';
+        'jsFunc: ' + jsFunc() + '<br/>';
 
     res.status(200).send(message);
 };
