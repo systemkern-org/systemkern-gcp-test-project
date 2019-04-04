@@ -4,15 +4,13 @@ if (typeof kotlin === 'undefined') {
 }
 module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   'use strict';
-    var throwCCE = Kotlin.throwCCE;
   var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
   function hello() {
     return 'Hello Kotlin World';
   }
   function processRequest(req, res) {
-      var tmp$, tmp$_0;
-      var query = typeof (tmp$ = req.query.message) === 'string' ? tmp$ : throwCCE();
-      var body = typeof (tmp$_0 = req.body.message) === 'string' ? tmp$_0 : throwCCE();
+      var query = req.query.message;
+      var body = req.body.message;
       var message = trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |req.query.message: ' + query + '<br>' + '\n' + '        |req.body.message: ' + body + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
