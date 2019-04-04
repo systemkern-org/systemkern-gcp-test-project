@@ -22,7 +22,6 @@ dependencies {
 }
 
 compileKotlin2Js.kotlinOptions {
-    moduleKind = "commonjs"
 }
 
 task assembleWeb(type: Sync) {
