@@ -14,11 +14,6 @@ const sayHi = require('./sayHi.js');
 exports.helloWorld = (req, res) => {
     fs.readdir(__dirname, (err, files) => {
         var kot = "";
-        try {
-            //       kot = hello()
-        } catch (e) {
-            kot = "Error"
-        }
 
         let message = 'Hello Javascript World!<br>Pushed from Github<br>' +
             'Hopefully with Kotlin ;-)<br>' +
