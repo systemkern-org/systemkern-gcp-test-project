@@ -13,18 +13,13 @@ const sayHi = require('./sayHi.js');
  */
 exports.helloWorld = (req, res) => {
     fs.readdir(__dirname, (err, files) => {
-        var hel = "";
-        try {
-            hel = _.hello
-        } catch {
-        }
         let message = 'Hello Javascript World!<br>Pushed from Github<br>' +
             'Hopefully with Kotlin ;-)<br>' +
             'req.query.message: ' + req.query.message + '<br>' +
             'req.body.message: ' + req.body.message + '<br>' +
             'files: ' + files + '<br/>' +
-            'sayHi: ' + sayHi() + '<br/>';
-
+            'sayHi: ' + sayHi() + '<br/>' +
+            'kotlin Hello: ' + _.hello() + '<br/>';
 
         res.status(200).send(message);
     });
