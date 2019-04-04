@@ -5,7 +5,8 @@ fun hello() = "Hello Kotlin World"
 
 @JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
-    val message = """Pushed from Github<br>
+    val message = """
+        |Pushed from Github<br>
         |req:               $req<br>
         |req.query:         ${req.query}<br>
         |req.body:          ${req.body}<br>
@@ -17,12 +18,9 @@ fun processRequest(req: dynamic, res: dynamic) {
 }
 
 @JsName("processBody")
-fun processBody(body: dynamic, res: dynamic) {
-    val message = """Pushed from Github<br>
-        |body:               ${body as String}
-    """.trimMargin()
-    //|req.body.message:  ${req.body.message}<br>
-    //|req.query.message: ${req.query.message}<br>
-
-    res.status(200).send(message)
+fun processBody(body: dynamic): String {
+    return """
+        |Pushed from Github<br>
+        |body: ${body as String}
+        """.trimMargin()
 }

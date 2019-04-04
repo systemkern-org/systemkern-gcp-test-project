@@ -10,14 +10,13 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     return 'Hello Kotlin World';
   }
   function processRequest(req, res) {
-      var message = trimMargin('Pushed from Github<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '    ');
+      var message = trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
 
-    function processBody(body, res) {
+    function processBody(body) {
         var tmp$;
-        var message = trimMargin('Pushed from Github<br>' + '\n' + '        |body:               ' + (typeof (tmp$ = body) === 'string' ? tmp$ : throwCCE()) + '\n' + '    ');
-        res.status(200).send(message);
+        return trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |body: ' + (typeof (tmp$ = body) === 'string' ? tmp$ : throwCCE()) + '\n' + '        ');
     }
   _.hello = hello;
   _.processRequest = processRequest;
