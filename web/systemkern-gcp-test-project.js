@@ -14,7 +14,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
 
   }
   _.hello = hello;
-  _.processRequest_wn2jw4$ = processRequest;
+  _.processRequest = processRequest;
   Kotlin.defineModule('systemkern-gcp-test-project', _);
   return _;
 }(typeof this['systemkern-gcp-test-project'] === 'undefined' ? {} : this['systemkern-gcp-test-project'], kotlin);

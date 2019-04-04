@@ -3,6 +3,7 @@
 
 fun hello() = "Hello Kotlin World"
 
+@JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
     val message = """
         |Pushed from Github<br>
