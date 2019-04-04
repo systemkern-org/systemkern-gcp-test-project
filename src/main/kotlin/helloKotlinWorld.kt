@@ -1,5 +1,5 @@
-external fun require(module: String): dynamic
-external val exports: dynamic
+//external fun require(module: String): dynamic
+//external val exports: dynamic
 
 fun hello() = "Hello Kotlin World"
 
