@@ -16,7 +16,7 @@ exports.helloWorld = (req, res) => {
             'req.query.message: ' + req.query.message + '<br>' +
             'req.body.message: ' + req.body.message + '<br>' +
             'files: ' + files + '<br/>' +
-            '<br/>';
+            'sayHi: ' + sayHi() + '<br/>';
         res.status(200).send(message);
     });
 };
