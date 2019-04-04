@@ -8,6 +8,6 @@ exports.helloWorld = (req, res) => {
     let message = req.query.message
         || req.body.message
         || 'Hello Javascript World! Pushed from Github';
-  res.status(200).send(message);
+    res.status(200).send(message);
 };
 
