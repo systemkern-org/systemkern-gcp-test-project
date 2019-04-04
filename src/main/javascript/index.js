@@ -4,6 +4,6 @@ const jsFunc = require('./function.js');
 
 //hello world endpoint
 exports.helloWorld = (req, res) => {
-    custom.hello(req, res);
+    custom.processRequest(req, res);
 };
 
