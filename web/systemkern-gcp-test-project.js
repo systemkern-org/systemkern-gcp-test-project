@@ -11,7 +11,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   function processRequest(req, res) {
       var query = req.query.message;
       var body = req.body.message;
-      var message = trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |req.query.message: ' + query + '<br>' + '\n' + '        |req.body.message: ' + body + '<br>' + '\n' + '    ');
+      var message = trimMargin('Pushed from Github<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query          ' + req.query.toString() + '<br>' + '\n' + '        |req.query.message: ' + query + '<br>' + '\n' + '        |req.body.message: ' + body + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
   _.hello = hello;
