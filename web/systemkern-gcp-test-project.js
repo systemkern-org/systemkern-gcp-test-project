@@ -4,13 +4,17 @@ if (typeof kotlin === 'undefined') {
 }
 module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   'use strict';
+  var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
   function hello() {
     return 'Hello Kotlin World';
   }
-  function hello2(req, res) {
+
+  function processRequest(req, res) {
+    var message = trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |req.query.message: ' + req.query.message.toString() + '<br>' + '\n' + '        |req.body.message: ' + req.body.message.toString() + '<br>' + '\n' + '    ');
+    res.status(200).send(message);
   }
   _.hello = hello;
-  _.hello2_wn2jw4$ = hello2;
+  _.processRequest_wn2jw4$ = processRequest;
   Kotlin.defineModule('systemkern-gcp-test-project', _);
   return _;
 }(typeof this['systemkern-gcp-test-project'] === 'undefined' ? {} : this['systemkern-gcp-test-project'], kotlin);
