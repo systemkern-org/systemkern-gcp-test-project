@@ -1,6 +1,6 @@
 // const kotlin = require('./kotlin');
 // const testModule = require('./systekern-gcp-function-test-project');
-const kotlin = require('./kotlin.js');
+const kotlin = require('./kotlin');
 const custom = require('./systemkern-gcp-test-project.js');
 const sayHi = require('./sayHi.js');
 
