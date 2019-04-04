@@ -47213,3 +47213,4 @@
 }));
 
 //# sourceMappingURL=kotlin.js.map
+module.exports = Kotlin;
