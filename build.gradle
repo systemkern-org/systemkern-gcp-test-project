@@ -1,4 +1,4 @@
-group 'org.example'
+group 'com.systemkern'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -35,8 +35,8 @@ task assembleWeb(type: Sync) {
             }
         })
     }
-    from compileKotlin2Js.destinationDir
-    into "${projectDir}/web"
+    from compileKotlin2Js.destinationDir into "${projectDir}/web"
+    from 'src/main/javascript' into "${projectDir}/web"
 
     dependsOn classes
 }
