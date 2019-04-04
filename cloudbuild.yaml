@@ -10,3 +10,14 @@ steps:
   - --trigger-http
   - --source=build/
   - --entry-point=helloWorld # Function name
+
+- name: gcr.io/cloud-builders/gcloud
+  args:
+    - beta
+    - functions
+    - deploy
+    - function-2
+    - --region=us-central1
+    - --trigger-http
+    - --source=build/
+    - --entry-point=helloWorld # Function name
