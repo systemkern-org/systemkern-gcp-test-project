@@ -1,10 +1,9 @@
 const kotlin = require('./kotlin.js');
-module.exports = this['systemkern-gcp-test-project'];
 
 if (typeof kotlin === 'undefined') {
     throw new Error("Error loading module 'systemkern-gcp-test-project'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'systemkern-gcp-test-project'.");
 }
-this['systemkern-gcp-test-project'] = function (_, Kotlin) {
+module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     'use strict';
 
     function hello() {

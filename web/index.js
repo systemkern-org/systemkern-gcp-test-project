@@ -1,4 +1,3 @@
-//require('./kotlin.js');
 const kotlin = require('./systemkern-gcp-test-project.js');
 const jsFunc = require('./sayHi.js');
 
