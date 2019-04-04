@@ -6,6 +6,7 @@ const jsFunc = require('./function.js');
 exports.procRequest = (req, res) => {
     custom.processRequest(req, res);
 };
+
 exports.procBody = (req, res) => {
     let message = custom.processBody(req.body);
     res.status(200).send(message)

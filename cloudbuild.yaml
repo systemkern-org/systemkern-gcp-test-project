@@ -11,6 +11,7 @@ steps:
       - --trigger-http
       - --source=web/
       - --entry-point=procRequest # Function name
+
   - name: gcr.io/cloud-builders/gcloud
     args:
       - beta
@@ -21,4 +22,4 @@ steps:
       - --runtime=nodejs8 #nodejs6 #nodejs8 #nodejs10 #(beta) #python37 #(Python 3.7) #go111 #Go 1.11
       - --trigger-http
       - --source=web/
-      - --entry-point=procBody# Function name
+      - --entry-point=procBody #Function name
