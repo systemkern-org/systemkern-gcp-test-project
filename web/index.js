@@ -1,8 +1,8 @@
 // const kotlin = require('./kotlin');
 // const testModule = require('./systekern-gcp-function-test-project');
-const sayHi = require('./sayHi.js');
-const kotlin = require('./kotlin.js');
-const custom = require('./systemkern-gcp-test-project.js');
+require('./sayHi.js');
+//require('./kotlin.js');
+const kotlin = require('./systemkern-gcp-test-project.js');
 
 /**
  * Responds to any HTTP request.
@@ -17,7 +17,7 @@ exports.helloWorld = (req, res) => {
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
         'sayHi: ' + sayHi() + '<br/>' +
-        'kotlin Hello: ' + custom.hello() + '<br/>';
+        'kotlin Hello: ' + kotlin.hello() + '<br/>';
 
     res.status(200).send(message);
 };
