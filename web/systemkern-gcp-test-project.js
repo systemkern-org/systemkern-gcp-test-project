@@ -8,10 +8,10 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   function hello() {
     return 'Hello Kotlin World';
   }
-
   function processRequest(req, res) {
     var message = trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |req.query.message: ' + req.query.message.toString() + '<br>' + '\n' + '        |req.body.message: ' + req.body.message.toString() + '<br>' + '\n' + '    ');
     res.status(200).send(message);
+
   }
   _.hello = hello;
   _.processRequest_wn2jw4$ = processRequest;
