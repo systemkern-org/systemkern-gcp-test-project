@@ -5,13 +5,12 @@ fun hello() = "Hello Kotlin World"
 
 @JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
-    val query: String = req.query.message.unsafeCast<String>()
-    val body: String = req.body.message.unsafeCast<String>()
     val message = """Pushed from Github<br>
         |req:               $req<br>
-        |req.query          ${req.query}<br>
-        |req.query.message: $query<br>
-        |req.body.message: $body<br>
+        |req.query:         ${req.query}<br>
+        |req.query.message: ${req.query.message}<br>
+        |req.body:          ${req.body}<br>
+        |req.body.message:  ${req.body.message}<br>
     """.trimMargin()
 
     res.status(200).send(message)
