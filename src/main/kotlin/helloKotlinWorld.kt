@@ -21,13 +21,17 @@ fun processRequest(req: dynamic, res: dynamic) {
 
 
 @JsName("processBody")
-fun processBody(body: dynamic): Response {
+fun processBody(body: String): Response {
     return Response(200,
         """
         |Pushed from Github<br>
         |body: ${body.unsafeCast<String>()}
         """.trimMargin()
     )
+    /*
+    Pushed from Github<br>
+    body: [object Object]
+    */
 }
 
 data class Response(
