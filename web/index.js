@@ -1,7 +1,7 @@
 // const kotlin = require('./kotlin');
 // const testModule = require('./systekern-gcp-function-test-project');
 const kotlin = require('./kotlin.js');
-// const custom = require('./systemkern-gcp-test-project.js');
+const custom = require('./systemkern-gcp-test-project.js');
 const sayHi = require('./sayHi.js');
 
 /**
@@ -13,6 +13,7 @@ const sayHi = require('./sayHi.js');
 exports.helloWorld = (req, res) => {
     let message = 'Hello Javascript World!<br>Pushed from Github<br>' +
         'Not yet with Kotlin :-(<br>' +
+        'But added the Includes:-(<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
         'sayHi: ' + sayHi() + '<br/>';
