@@ -7,5 +7,4 @@ steps:
   - deploy
   - --trigger-http
   - --source=build/
-  - --entry-point=f
-  - helloWorld # Function name
+  - --entry-point= helloWorld # Function name
