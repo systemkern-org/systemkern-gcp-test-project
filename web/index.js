@@ -1,5 +1,5 @@
-const kotlin = require('./kotlin');
-const testModule = require('./systekern-gcp-function-test-project');
+// const kotlin = require('./kotlin');
+// const testModule = require('./systekern-gcp-function-test-project');
 
 /**
  * Responds to any HTTP request.
