@@ -9,8 +9,8 @@ fun processRequest(req: dynamic, res: dynamic) {
         |req:               $req<br>
         |req.query:         ${req.query}<br>
         |req.body:          ${req.body}<br>
-        |req.body.message:  ${req.body.message}<br>
     """.trimMargin()
+    //|req.body.message:  ${req.body.message}<br>
     //|req.query.message: ${req.query.message}<br>
 
     res.status(200).send(message)
