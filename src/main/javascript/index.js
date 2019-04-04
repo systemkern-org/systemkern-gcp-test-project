@@ -8,7 +8,7 @@ exports.procRequest = (req, res) => {
 };
 
 exports.procBody = (req, res) => {
-    let message = custom.processBody(req.body);
-    res.status(200).send(message)
+    let response = custom.processBody(req.body);
+    res.status(response.code).send(response.message)
 };
 

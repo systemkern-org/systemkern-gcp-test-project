@@ -1,8 +1,6 @@
 external val exports: dynamic
 external fun require(module: String): dynamic
 
-fun hello() = "Hello Kotlin World"
-
 @JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
     val message = """
@@ -18,9 +16,16 @@ fun processRequest(req: dynamic, res: dynamic) {
 }
 
 @JsName("processBody")
-fun processBody(body: dynamic): String {
-    return """
+fun processBody(body: dynamic): Response {
+    return Response(200,
+        """
         |Pushed from Github<br>
-        |body: ${body as String}
+        |body: ${body}
         """.trimMargin()
+    )
 }
+
+data class Response(
+    val code: Int = 0,
+    val message: String = ""
+)
