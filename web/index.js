@@ -1,5 +1,6 @@
 // const kotlin = require('./kotlin');
 // const testModule = require('./systekern-gcp-function-test-project');
+const foo = require('./foo');
 
 /**
  * Responds to any HTTP request.
@@ -12,7 +13,8 @@ exports.helloWorld = (req, res) => {
         'Hopefully with Kotlin ;-)<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
-        'kotlin hello: ' + hello() + '<br>';
+        'foo: ' + foo() + '<br>';
+//        'kotlin hello: ' + hello() + '<br>';
     res.status(200).send(message);
 };
 
