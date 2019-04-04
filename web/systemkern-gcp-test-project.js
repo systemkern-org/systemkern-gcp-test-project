@@ -1,4 +1,4 @@
-const kotlin = require('./kotlin.js');
+const Kotlin = require('./kotlin.js');
 
 (function (_, Kotlin) {
   'use strict';
