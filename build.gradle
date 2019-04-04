@@ -21,6 +21,10 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
 }
 
+compileKotlin2Js.kotlinOptions {
+    moduleKind = "commonjs"
+}
+
 task assembleWeb(type: Sync) {
     configurations.compile.each { File file ->
         from(zipTree(file.absolutePath), {
