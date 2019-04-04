@@ -11,8 +11,8 @@ exports.helloWorld = (req, res) => {
     let message = 'Hello Javascript World! Pushed from Github<br>' +
         'Hopefully with Kotlin ;-)<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
-        'req.body.message: ' + req.body.message + '<br>';
-    'kotlin hello: ' + hello() + '<br>';
+        'req.body.message: ' + req.body.message + '<br>' +
+        'kotlin hello: ' + hello() + '<br>';
     res.status(200).send(message);
 };
 
