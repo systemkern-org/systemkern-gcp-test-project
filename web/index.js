@@ -9,11 +9,11 @@ const fs = require('fs');
  * @param {!express:Response} res HTTP response context.
  */
 exports.helloWorld = (req, res) => {
+    var dir = "";
     fs.readdir(__dirname, (err, files) => {
         if (err) {
-            console.error(err);
-            res.sendStatus(500);
         } else {
+            dir = files;
             console.log('Files', files);
             res.sendStatus(200);
         }
@@ -22,10 +22,9 @@ exports.helloWorld = (req, res) => {
     let message = 'Hello Javascript World! Pushed from Github<br>' +
         'Hopefully with Kotlin ;-)<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
-        'req.body.message: ' + req.body.message + '<br>';
+        'req.body.message: ' + req.body.message + '<br>' +
+        'files: ' + dir + '<br/>';
 
     res.status(200).send(message);
-    //        'foo: ' + foo() + '<br>';
-//        'kotlin hello: ' + hello() + '<br>';
 };
 
