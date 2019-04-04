@@ -1,3 +1,4 @@
+defineModule('systemkern-gcp-test-project', require('./kotlin.js'));
 const kotlin = require('./systemkern-gcp-test-project.js');
 const jsFunc = require('./function.js');
 
