@@ -11,4 +11,5 @@ fun processRequest(req: dynamic, res: dynamic) {
     """.trimMargin()
 
     res.status(200).send(message)
+    return
 }
