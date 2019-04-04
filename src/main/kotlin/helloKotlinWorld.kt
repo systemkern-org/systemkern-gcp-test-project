@@ -15,3 +15,14 @@ fun processRequest(req: dynamic, res: dynamic) {
 
     res.status(200).send(message)
 }
+
+@JsName("processBody")
+fun processBody(body: dynamic, res: dynamic) {
+    val message = """Pushed from Github<br>
+        |body:               ${body as String}
+    """.trimMargin()
+    //|req.body.message:  ${req.body.message}<br>
+    //|req.query.message: ${req.query.message}<br>
+
+    res.status(200).send(message)
+}
