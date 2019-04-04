@@ -17,7 +17,7 @@ exports.helloWorld = (req, res) => {
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
         'sayHi: ' + sayHi() + '<br/>' +
-        'kotlin Hello: ' + hello() + '<br/>';
+        'kotlin Hello: ' + custom.hello() + '<br/>';
 
     res.status(200).send(message);
 };
