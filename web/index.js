@@ -1,8 +1,6 @@
-// const kotlin = require('./kotlin');
-// const testModule = require('./systekern-gcp-function-test-project');
-require('./sayHi.js');
 //require('./kotlin.js');
 const kotlin = require('./systemkern-gcp-test-project.js');
+const jsFunc = require('./sayHi.js');
 
 /**
  * Responds to any HTTP request.
@@ -11,13 +9,11 @@ const kotlin = require('./systemkern-gcp-test-project.js');
  * @param {!express:Response} res HTTP response context.
  */
 exports.helloWorld = (req, res) => {
-    let message = 'Hello Javascript World!<br>Pushed from Github<br>' +
-        'Not yet with Kotlin :-(<br>' +
-        'But added the Includes:-)<br>' +
+    let message = kotlin.hello() + '<br/>' +
+        'Pushed from Github<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
-        'sayHi: ' + sayHi() + '<br/>' +
-        'kotlin Hello: ' + kotlin.hello() + '<br/>';
+        'sayHi: ' + jsFunc() + '<br/>';
 
     res.status(200).send(message);
 };
