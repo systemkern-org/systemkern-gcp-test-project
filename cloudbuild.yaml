@@ -5,6 +5,7 @@ steps:
   - beta
   - functions
   - deploy
+  - --region=us-central1
   - --trigger-http
   - --source=build/
   - --entry-point=helloWorld # Function name
