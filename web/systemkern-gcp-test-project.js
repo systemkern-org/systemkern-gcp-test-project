@@ -1,3 +1,5 @@
+const kotlin = require('./kotlin.js');
+
 (function (_, Kotlin) {
   'use strict';
   function hello() {
