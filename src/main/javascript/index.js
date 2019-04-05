@@ -9,7 +9,7 @@ exports.procRequest = (req, res) => {
         'But added the Includes:-(<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
-        'sayHi: ' + sayHi() + '<br/>';
+        'jsFunc: ' + jsFunc() + '<br/>';
 
     res.status(200).send(message);
 
@@ -22,7 +22,7 @@ exports.procBody = (req, res) => {
         'But added the Includes:-(<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
         'req.body.message: ' + req.body.message + '<br>' +
-        'sayHi: ' + sayHi() + '<br/>';
+        'jsFunc: ' + jsFunc() + '<br/>';
     // 'Kotlin: ' + kot + '<br/>';
     // 'kotlin Hello: ' + _.hello() + '<br/>';
 
