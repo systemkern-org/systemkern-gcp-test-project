@@ -17,8 +17,12 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     var tmp$, tmp$_0;
     try {
       try {
-        console.log('Trying to parse ' + body.toString() + ' as Json String');
-        tmp$_0 = JSON.parse(JSON.stringify(body));
+        console.log('Trying to parse body: ' + body.toString() + ' as Json String');
+        var $receiver = JSON.stringify(body);
+        console.log('Stringified body to ' + $receiver);
+        var $receiver_0 = JSON.parse($receiver);
+        console.log('Parsed to ' + $receiver_0);
+        tmp$_0 = $receiver_0;
       }
        catch (e) {
         console.log('Trying use ' + body.toString() + ' as JS Object');
@@ -30,6 +34,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
       return new Response(trimMargin('\\' + 'n' + '\n' + '            |body:          ' + body.toString() + '           <br>' + '\\' + 'n' + '\n' + '            |body.message:  ' + body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '            |error:         ' + e.toString() + '              <br>' + '\\' + 'n' + '\n' + '        '));
     }
     var data = tmp$_0;
+    console.log('body: ' + body.toString() + ' parsed to ' + data);
     return new Response(trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:   <br>' + '\\' + 'n' + '\n' + '        |data: ' + data + '        <br>' + '\\' + 'n' + '\n' + '        '));
   }
   function Response(message, code) {

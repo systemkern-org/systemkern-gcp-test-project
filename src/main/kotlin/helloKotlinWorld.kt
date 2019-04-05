@@ -21,13 +21,14 @@ fun processRequest(req: dynamic, res: dynamic) {
 fun processBody(body: dynamic): Response {
     val data = try {
         try {
-            console.log("Trying to parse $body as Json String")
-            JSON.parse<TestBody>(JSON.stringify(body))
+            console.log("Trying to parse body: $body as Json String")
+            JSON.stringify(body)
+                .also { console.log("Stringified body to $it") }
+                .let { JSON.parse<TestBody>(it) }
+                .also { console.log("Parsed to $it") }
         } catch (e: dynamic) {
             console.log("Trying use $body as JS Object")
-            TestBody(
-                message = body.message as String
-            )
+            TestBody(message = body.message as String)
         }
     } catch (e: dynamic) {
         console.log("Using body: $body in any known way failed")
@@ -38,6 +39,9 @@ fun processBody(body: dynamic): Response {
         """.trimMargin())
 
     }
+
+    console.log("body: $body parsed to $data")
+
     return Response(
         """\n
         |Kotlin Response:   <br>\n
