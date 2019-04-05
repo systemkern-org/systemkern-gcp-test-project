@@ -59,7 +59,7 @@ compileKotlin2Js.kotlinOptions {
 
 
 [compileKotlin2Js, compileTestKotlin2Js]*.configure {
-    kotlinOptions.moduleKind = "commonjs"
+//    kotlinOptions.moduleKind = "commonjs"
 }
 
 task populateNodeModules(type: Copy, dependsOn: compileKotlin2Js) {
