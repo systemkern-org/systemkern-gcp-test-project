@@ -1,5 +1,4 @@
 const kotlin = require('./kotlin.js');
-const serial = require('./kotlinx-serialization-runtime-js.js');
 const custom = require('./systemkern-gcp-test-project.js');
 const jsFunc = require('./function.js');
 
