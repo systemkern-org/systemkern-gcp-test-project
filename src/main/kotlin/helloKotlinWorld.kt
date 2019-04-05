@@ -1,9 +1,10 @@
 external val exports: dynamic
 external fun require(module: String): dynamic
+external val console: dynamic
 
 @JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
-    val str : String = req.body.message
+    val str: String = req.body.message
     val message = """\n
         |Kotlin Response:                       <br>\n
         |req:               $req                <br>\n
@@ -19,11 +20,17 @@ fun processRequest(req: dynamic, res: dynamic) {
 @JsName("processBody")
 fun processBody(body: dynamic): Response {
     val data = try {
-        // JSON.parse<TestBody>(body) // this does not work because body is already a JS object
-        TestBody(
-            message = body.message as String
-        )
+        try {
+            console.log("Trying to parse $body as Json String")
+            JSON.parse<TestBody>(JSON.stringify(body))
+        } catch (e: dynamic) {
+            console.log("Trying use $body as JS Object")
+            TestBody(
+                message = body.message as String
+            )
+        }
     } catch (e: dynamic) {
+        console.log("Using body: $body in any known way failed")
         return Response("""\n
             |body:          $body           <br>\n
             |body.message:  ${body.message} <br>\n

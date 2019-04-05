@@ -16,9 +16,17 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   function processBody(body) {
     var tmp$, tmp$_0;
     try {
-      tmp$_0 = new TestBody(typeof (tmp$ = body.message) === 'string' ? tmp$ : throwCCE());
+      try {
+        console.log('Trying to parse ' + body.toString() + ' as Json String');
+        tmp$_0 = JSON.parse(JSON.stringify(body));
+      }
+       catch (e) {
+        console.log('Trying use ' + body.toString() + ' as JS Object');
+        tmp$_0 = new TestBody(typeof (tmp$ = body.message) === 'string' ? tmp$ : throwCCE());
+      }
     }
      catch (e) {
+      console.log('Using body: ' + body.toString() + ' in any known way failed');
       return new Response(trimMargin('\\' + 'n' + '\n' + '            |body:          ' + body.toString() + '           <br>' + '\\' + 'n' + '\n' + '            |body.message:  ' + body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '            |error:         ' + e.toString() + '              <br>' + '\\' + 'n' + '\n' + '        '));
     }
     var data = tmp$_0;
