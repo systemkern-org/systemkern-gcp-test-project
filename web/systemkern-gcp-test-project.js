@@ -35,7 +35,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     }
     var data = tmp$_0;
     console.log('body: ' + body.toString() + ' parsed to ' + data);
-    return new Response(trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:   <br>' + '\\' + 'n' + '\n' + '        |data: ' + data + '        <br>' + '\\' + 'n' + '\n' + '        '));
+    return new Response(trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:' + '\n' + '        |data:    ' + data + '\n' + '        |message: ' + data.message + '\n' + '        '));
   }
   function Response(message, code) {
     if (message === void 0)

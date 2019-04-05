@@ -44,8 +44,9 @@ fun processBody(body: dynamic): Response {
 
     return Response(
         """\n
-        |Kotlin Response:   <br>\n
-        |data: $data        <br>\n
+        |Kotlin Response:
+        |data:    $data
+        |message: ${data.message}
         """.trimMargin()
     )
     /*
