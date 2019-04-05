@@ -6,11 +6,10 @@ if (typeof kotlin === 'undefined') {
 module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   'use strict';
   var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
-  var Exception = Kotlin.kotlin.Exception;
   var toString = Kotlin.toString;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   function processRequest(req, res) {
-    var message = trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '    ');
+    var message = trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.message.toString() + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
   function processBody(body) {
@@ -19,18 +18,18 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
       tmp$ = JSON.parse(body);
     }
      catch (e) {
-        tmp$ = e
+      return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |error: ' + e.toString() + '\n' + '        '));
     }
     var data = tmp$;
-    return new Response(200, trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + toString(data) + '\n' + '        '));
+    return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + toString(data) + '\n' + '        '));
   }
-  function Response(code, message) {
-    if (code === void 0)
-      code = 0;
+  function Response(message, code) {
     if (message === void 0)
       message = '';
-    this.code = code;
+    if (code === void 0)
+      code = 200;
     this.message = message;
+    this.code = code;
   }
   Response.$metadata$ = {
     kind: Kind_CLASS,
@@ -38,25 +37,25 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     interfaces: []
   };
   Response.prototype.component1 = function () {
-    return this.code;
-  };
-  Response.prototype.component2 = function () {
     return this.message;
   };
-  Response.prototype.copy_19mbxw$ = function (code, message) {
-    return new Response(code === void 0 ? this.code : code, message === void 0 ? this.message : message);
+  Response.prototype.component2 = function () {
+    return this.code;
+  };
+  Response.prototype.copy_bm4lxs$ = function (message, code) {
+    return new Response(message === void 0 ? this.message : message, code === void 0 ? this.code : code);
   };
   Response.prototype.toString = function () {
-    return 'Response(code=' + Kotlin.toString(this.code) + (', message=' + Kotlin.toString(this.message)) + ')';
+    return 'Response(message=' + Kotlin.toString(this.message) + (', code=' + Kotlin.toString(this.code)) + ')';
   };
   Response.prototype.hashCode = function () {
     var result = 0;
-    result = result * 31 + Kotlin.hashCode(this.code) | 0;
     result = result * 31 + Kotlin.hashCode(this.message) | 0;
+    result = result * 31 + Kotlin.hashCode(this.code) | 0;
     return result;
   };
   Response.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.code, other.code) && Kotlin.equals(this.message, other.message)))));
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.message, other.message) && Kotlin.equals(this.code, other.code)))));
   };
   function TestBody(message) {
     this.message = message;

@@ -8,6 +8,7 @@ fun processRequest(req: dynamic, res: dynamic) {
         |req:               $req<br>
         |req.query:         ${req.query}<br>
         |req.body:          ${req.body}<br>
+        |req.body:          ${req.body.message}<br>
     """.trimMargin()
     res.status(200).send(message)
 }
@@ -17,10 +18,15 @@ fun processRequest(req: dynamic, res: dynamic) {
 fun processBody(body: String): Response {
     val data: TestBody? = try {
         JSON.parse<TestBody>(body)
-    } catch (e: Exception) {
-        null
+    } catch (e: dynamic) {
+        return Response(
+            """
+        |Kotlin Response:<br>
+        |error: $e
+        """.trimMargin()
+        )
     }
-    return Response(200,
+    return Response(
         """
         |Kotlin Response:<br>
         |data: $data
@@ -33,8 +39,8 @@ fun processBody(body: String): Response {
 }
 
 data class Response(
-    val code: Int = 0,
-    val message: String = ""
+    val message: String = "",
+    val code: Int = 200
 )
 
 /*
