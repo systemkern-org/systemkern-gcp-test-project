@@ -4,7 +4,7 @@ external fun require(module: String): dynamic
 @JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
     val str : String = req.body.message
-    val message = """
+    val message = """\n
         |Kotlin Response:                       <br>\n
         |req:               $req                <br>\n
         |req.query:         ${req.query}        <br>\n
@@ -17,20 +17,24 @@ fun processRequest(req: dynamic, res: dynamic) {
 
 
 @JsName("processBody")
-fun processBody(body: String): Response {
-    val tmp  = try {
-        JSON.parse<TestBody>(body)
+fun processBody(body: dynamic): Response {
+    val data = try {
+        // JSON.parse<TestBody>(body) // this does not work because body is already a JS object
+        TestBody(
+            message = body.message as String
+        )
     } catch (e: dynamic) {
-        return Response("""
-            |body:  $body       <br>\n
-            |error: $e          <br>\n
+        return Response("""\n
+            |body:          $body           <br>\n
+            |body.message:  ${body.message} <br>\n
+            |error:         $e              <br>\n
         """.trimMargin())
 
     }
     return Response(
-        """
+        """\n
         |Kotlin Response:   <br>\n
-        |data: $body        <br>\n
+        |data: $data        <br>\n
         """.trimMargin()
     )
     /*

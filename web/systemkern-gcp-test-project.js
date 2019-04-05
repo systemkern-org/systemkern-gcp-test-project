@@ -6,22 +6,23 @@ if (typeof kotlin === 'undefined') {
 module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   'use strict';
   var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
+  var throwCCE = Kotlin.throwCCE;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   function processRequest(req, res) {
     var str = req.body.message;
-    var message = trimMargin('\n' + '        |Kotlin Response:                       <br>' + '\\' + 'n' + '\n' + '        |req:               ' + req.toString() + '                <br>' + '\\' + 'n' + '\n' + '        |req.query:         ' + req.query.toString() + '        <br>' + '\\' + 'n' + '\n' + '        |req.body:          ' + req.body.toString() + '         <br>' + '\\' + 'n' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '        |kotlin String:     ' + str + '                <br>' + '\\' + 'n' + '\n' + '    ');
+    var message = trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:                       <br>' + '\\' + 'n' + '\n' + '        |req:               ' + req.toString() + '                <br>' + '\\' + 'n' + '\n' + '        |req.query:         ' + req.query.toString() + '        <br>' + '\\' + 'n' + '\n' + '        |req.body:          ' + req.body.toString() + '         <br>' + '\\' + 'n' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '        |kotlin String:     ' + str + '                <br>' + '\\' + 'n' + '\n' + '    ');
     res.status(200).send(message);
   }
   function processBody(body) {
-    var tmp$;
+    var tmp$, tmp$_0;
     try {
-      tmp$ = JSON.parse(body);
+      tmp$_0 = new TestBody(typeof (tmp$ = body.message) === 'string' ? tmp$ : throwCCE());
     }
      catch (e) {
-      return new Response(trimMargin('\n' + '            |body:  ' + body + '       <br>' + '\\' + 'n' + '\n' + '            |error: ' + e.toString() + '          <br>' + '\\' + 'n' + '\n' + '        '));
+      return new Response(trimMargin('\\' + 'n' + '\n' + '            |body:          ' + body.toString() + '           <br>' + '\\' + 'n' + '\n' + '            |body.message:  ' + body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '            |error:         ' + e.toString() + '              <br>' + '\\' + 'n' + '\n' + '        '));
     }
-    var tmp = tmp$;
-    return new Response(trimMargin('\n' + '        |Kotlin Response:   <br>' + '\\' + 'n' + '\n' + '        |data: ' + body + '        <br>' + '\\' + 'n' + '\n' + '        '));
+    var data = tmp$_0;
+    return new Response(trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:   <br>' + '\\' + 'n' + '\n' + '        |data: ' + data + '        <br>' + '\\' + 'n' + '\n' + '        '));
   }
   function Response(message, code) {
     if (message === void 0)
