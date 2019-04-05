@@ -4,7 +4,7 @@ external fun require(module: String): dynamic
 @JsName("processRequest")
 fun processRequest(req: dynamic, res: dynamic) {
     val message = """
-        |Pushed from Github<br>
+        |Javascript Response<br>
         |req:               $req<br>
         |req.query:         ${req.query}<br>
         |req.body:          ${req.body}<br>
@@ -24,7 +24,7 @@ fun processRequest(req: dynamic, res: dynamic) {
 fun processBody(body: String): Response {
     return Response(200,
         """
-        |Pushed from Github<br>
+        |Javascript Response<br>
         |body: ${body.unsafeCast<String>()}
         """.trimMargin()
     )
