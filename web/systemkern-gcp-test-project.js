@@ -6,22 +6,14 @@ if (typeof kotlin === 'undefined') {
 module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   'use strict';
   var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
-  var toString = Kotlin.toString;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   function processRequest(req, res) {
-    var message = trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.message.toString() + '<br>' + '\n' + '    ');
+    var str = req.body.message;
+    var message = trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '<br>' + '\n' + '        |kotlin String:     ' + str + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
   function processBody(body) {
-    var tmp$;
-    try {
-      tmp$ = JSON.parse(body);
-    }
-     catch (e) {
-      return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |error: ' + e.toString() + '\n' + '        '));
-    }
-    var data = tmp$;
-    return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + toString(data) + '\n' + '        '));
+    return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + body + '\n' + '        '));
   }
   function Response(message, code) {
     if (message === void 0)
