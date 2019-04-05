@@ -23,7 +23,6 @@ fun processBody(body: String): Response {
     return Response(200,
         """
         |Kotlin Response:<br>
-        |body: ${body.unsafeCast<String>()}
         |data: $data
         """.trimMargin()
     )

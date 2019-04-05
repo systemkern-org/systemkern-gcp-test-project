@@ -26,7 +26,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
         throw e;
     }
     var data = tmp$;
-    return new Response(200, trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |body: ' + body + '\n' + '        |data: ' + toString(data) + '\n' + '        '));
+    return new Response(200, trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + toString(data) + '\n' + '        '));
   }
   function Response(code, message) {
     if (code === void 0)
