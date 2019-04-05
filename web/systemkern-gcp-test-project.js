@@ -10,7 +10,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   var Kind_CLASS = Kotlin.Kind.CLASS;
   function processRequest(req, res) {
     var str = req.body.message;
-    var message = trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:                       <br>' + '\\' + 'n' + '\n' + '        |req:               ' + req.toString() + '                <br>' + '\\' + 'n' + '\n' + '        |req.query:         ' + req.query.toString() + '        <br>' + '\\' + 'n' + '\n' + '        |req.body:          ' + req.body.toString() + '         <br>' + '\\' + 'n' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '        |kotlin String:     ' + str + '                <br>' + '\\' + 'n' + '\n' + '    ');
+    var message = trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:' + '\n' + '        |req:               ' + req.toString() + '\n' + '        |req.query:         ' + req.query.toString() + '\n' + '        |req.body:          ' + req.body.toString() + '\n' + '        |req.body string:   ' + JSON.stringify(req.body) + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '\n' + '        |Kotlin String:     ' + str + '\n' + '    ');
     res.status(200).send(message);
   }
   function processBody(body) {
@@ -35,7 +35,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     }
     var data = tmp$_0;
     console.log('body: ' + body.toString() + ' parsed to ' + data);
-    return new Response(trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:' + '\n' + '        |data:    ' + data + '\n' + '        |message: ' + data.message + '\n' + '        '));
+    return new Response(trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:' + '\n' + '        |body:    ' + JSON.stringify(body) + '\n' + '        |data:    ' + data + '\n' + '        |message: ' + data.message + '\n' + '        '));
   }
   function Response(message, code) {
     if (message === void 0)

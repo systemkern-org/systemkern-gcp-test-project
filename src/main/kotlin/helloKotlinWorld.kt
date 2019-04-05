@@ -6,12 +6,13 @@ external val console: dynamic
 fun processRequest(req: dynamic, res: dynamic) {
     val str: String = req.body.message
     val message = """\n
-        |Kotlin Response:                       <br>\n
-        |req:               $req                <br>\n
-        |req.query:         ${req.query}        <br>\n
-        |req.body:          ${req.body}         <br>\n
-        |req.body.message:  ${req.body.message} <br>\n
-        |kotlin String:     $str                <br>\n
+        |Kotlin Response:
+        |req:               $req
+        |req.query:         ${req.query}
+        |req.body:          ${req.body}
+        |req.body string:   ${JSON.stringify(req.body)}
+        |req.body.message:  ${req.body.message}
+        |Kotlin String:     $str
     """.trimMargin()
     res.status(200).send(message)
 }
@@ -37,7 +38,6 @@ fun processBody(body: dynamic): Response {
             |body.message:  ${body.message} <br>\n
             |error:         $e              <br>\n
         """.trimMargin())
-
     }
 
     console.log("body: $body parsed to $data")
@@ -45,6 +45,7 @@ fun processBody(body: dynamic): Response {
     return Response(
         """\n
         |Kotlin Response:
+        |body:    ${JSON.stringify(body)}
         |data:    $data
         |message: ${data.message}
         """.trimMargin()
