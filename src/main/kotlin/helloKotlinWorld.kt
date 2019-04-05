@@ -5,12 +5,12 @@ external fun require(module: String): dynamic
 fun processRequest(req: dynamic, res: dynamic) {
     val str : String = req.body.message
     val message = """
-        |Kotlin Response:<br>
-        |req:               $req<br>
-        |req.query:         ${req.query}<br>
-        |req.body:          ${req.body}<br>
-        |req.body.message:  ${req.body.message}<br>
-        |kotlin String:     ${str}<br>
+        |Kotlin Response:                       <br>\n
+        |req:               $req                <br>\n
+        |req.query:         ${req.query}        <br>\n
+        |req.body:          ${req.body}         <br>\n
+        |req.body.message:  ${req.body.message} <br>\n
+        |kotlin String:     $str                <br>\n
     """.trimMargin()
     res.status(200).send(message)
 }
@@ -21,12 +21,16 @@ fun processBody(body: String): Response {
     val tmp  = try {
         JSON.parse<TestBody>(body)
     } catch (e: dynamic) {
-        return e
+        return Response("""
+            |body:  $body       <br>\n
+            |error: $e          <br>\n
+        """.trimMargin())
+
     }
     return Response(
         """
-        |Kotlin Response:<br>
-        |data: $body
+        |Kotlin Response:   <br>\n
+        |data: $body        <br>\n
         """.trimMargin()
     )
     /*

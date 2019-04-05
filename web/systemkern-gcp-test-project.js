@@ -9,7 +9,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   var Kind_CLASS = Kotlin.Kind.CLASS;
   function processRequest(req, res) {
     var str = req.body.message;
-    var message = trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '<br>' + '\n' + '        |kotlin String:     ' + str + '<br>' + '\n' + '    ');
+    var message = trimMargin('\n' + '        |Kotlin Response:                       <br>' + '\\' + 'n' + '\n' + '        |req:               ' + req.toString() + '                <br>' + '\\' + 'n' + '\n' + '        |req.query:         ' + req.query.toString() + '        <br>' + '\\' + 'n' + '\n' + '        |req.body:          ' + req.body.toString() + '         <br>' + '\\' + 'n' + '\n' + '        |req.body.message:  ' + req.body.message.toString() + ' <br>' + '\\' + 'n' + '\n' + '        |kotlin String:     ' + str + '                <br>' + '\\' + 'n' + '\n' + '    ');
     res.status(200).send(message);
   }
   function processBody(body) {
@@ -18,10 +18,10 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
       tmp$ = JSON.parse(body);
     }
      catch (e) {
-      return e;
+      return new Response(trimMargin('\n' + '            |body:  ' + body + '       <br>' + '\\' + 'n' + '\n' + '            |error: ' + e.toString() + '          <br>' + '\\' + 'n' + '\n' + '        '));
     }
     var tmp = tmp$;
-    return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + body + '\n' + '        '));
+    return new Response(trimMargin('\n' + '        |Kotlin Response:   <br>' + '\\' + 'n' + '\n' + '        |data: ' + body + '        <br>' + '\\' + 'n' + '\n' + '        '));
   }
   function Response(message, code) {
     if (message === void 0)
