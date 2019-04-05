@@ -6184,7 +6184,7 @@
         throw new JsonParsingException(curPos, 'Unexpected end in string');
       }
       if (source.charCodeAt(curPos) === STRING) {
-        break;
+        break parse;
       }
        else if (source.charCodeAt(curPos) === STRING_ESC) {
         this.appendRange_0(source, lastPos, curPos);
@@ -6888,7 +6888,7 @@
     return this.currentElement_61zpoe$(tag) !== JsonNull_getInstance();
   };
   AbstractJsonTreeInput.prototype.decodeTaggedUnit_11rb$ = function (tag) {
-
+    return;
   };
   AbstractJsonTreeInput.prototype.decodeTaggedBoolean_11rb$ = function (tag) {
     return this.getValue_61zpoe$(tag).boolean;

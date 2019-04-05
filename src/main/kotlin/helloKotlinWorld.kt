@@ -18,6 +18,11 @@ fun processRequest(req: dynamic, res: dynamic) {
 
 @JsName("processBody")
 fun processBody(body: String): Response {
+    val tmp  = try {
+        JSON.parse<TestBody>(body)
+    } catch (e: dynamic) {
+        return e
+    }
     return Response(
         """
         |Kotlin Response:<br>

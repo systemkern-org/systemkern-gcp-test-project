@@ -13,6 +13,14 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
     res.status(200).send(message);
   }
   function processBody(body) {
+    var tmp$;
+    try {
+      tmp$ = JSON.parse(body);
+    }
+     catch (e) {
+      return e;
+    }
+    var tmp = tmp$;
     return new Response(trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + body + '\n' + '        '));
   }
   function Response(message, code) {
