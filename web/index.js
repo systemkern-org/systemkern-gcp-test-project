@@ -8,9 +8,9 @@ exports.procRequest = (req, res) => {
 };
 
 exports.procBody = (req, res) => {
-    let response = custom.processBody(req.body.message);
+    let response = custom.processBody(req.body);
     res.status(200).send(
-        '<hr>Kotlin Response:' + '<br>' +
+        '<hr>Kotlin Response:' + '<br>\n' +
         response.message
     )
 };
