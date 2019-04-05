@@ -19,11 +19,7 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
       tmp$ = JSON.parse(body);
     }
      catch (e) {
-      if (Kotlin.isType(e, Exception)) {
-        tmp$ = null;
-      }
-       else
-        throw e;
+        tmp$ = e
     }
     var data = tmp$;
     return new Response(200, trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |data: ' + toString(data) + '\n' + '        '));
