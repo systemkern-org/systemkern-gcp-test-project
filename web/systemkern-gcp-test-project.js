@@ -1,9 +1,7 @@
-const kotlin = require('./kotlin.js');
-const serial = require('./kotlinx-serialization-runtime-js.js');
 if (typeof kotlin === 'undefined') {
   throw new Error("Error loading module 'systemkern-gcp-test-project'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'systemkern-gcp-test-project'.");
 }
-module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
+this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   'use strict';
   var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
   var Exception = Kotlin.kotlin.Exception;

@@ -5,7 +5,7 @@ steps:
       - beta
       - functions
       - deploy
-      - function-1
+      - processRequest
       - --region=europe-west1 #europe-west1, europe-west2, us-central1, us-east1, asia-northeast1, asia-east2
       - --runtime=nodejs8 #nodejs6 #nodejs8 #nodejs10 #(beta) #python37 #(Python 3.7) #go111 #Go 1.11
       - --trigger-http
@@ -17,7 +17,7 @@ steps:
       - beta
       - functions
       - deploy
-      - function-2
+      - processBody
       - --region=europe-west1 #europe-west1, europe-west2, us-central1, us-east1, asia-northeast1, asia-east2
       - --runtime=nodejs8 #nodejs6 #nodejs8 #nodejs10 #(beta) #python37 #(Python 3.7) #go111 #Go 1.11
       - --trigger-http
