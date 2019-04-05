@@ -10,22 +10,21 @@ fun processRequest(req: dynamic, res: dynamic) {
         |req.body:          ${req.body}<br>
     """.trimMargin()
     res.status(200).send(message)
-
-    /*
-    Pushed from Github<br>
-    req:               [object Object]<br>
-    req.query:         [object Object]<br>
-    req.body:          [object Object]<br>
-    */
 }
 
 
 @JsName("processBody")
 fun processBody(body: String): Response {
+    val data: TestBody? = try {
+        JSON.parse<TestBody>(body)
+    } catch (e: Exception) {
+        null
+    }
     return Response(200,
         """
         |Kotlin Response:<br>
         |body: ${body.unsafeCast<String>()}
+        |data: $data
         """.trimMargin()
     )
     /*
@@ -38,3 +37,10 @@ data class Response(
     val code: Int = 0,
     val message: String = ""
 )
+
+/*
+{
+  "message" : "test_message"
+}
+ */
+internal data class TestBody(val message: String)
