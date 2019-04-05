@@ -1,4 +1,3 @@
-const kotlin = require('./kotlin.js');
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
     define(['exports', 'kotlin'], factory);
@@ -6180,7 +6179,7 @@ const kotlin = require('./kotlin.js');
     var curPos = startPos + 1 | 0;
     var lastPos = curPos;
     var maxLen = source.length;
-    while (true) {
+    parse: while (true) {
       if (curPos >= maxLen) {
         throw new JsonParsingException(curPos, 'Unexpected end in string');
       }
