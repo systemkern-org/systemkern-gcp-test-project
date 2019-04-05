@@ -10,10 +10,7 @@ exports.procRequest = (req, res) => {
 exports.procBody = (req, res) => {
     let response = custom.processBody(req.body.message);
     res.status(200).send(
-        '<hr>Javascript Response:' + '<br>' +
-        message + '<br>' +
         '<hr>Kotlin Response:' + '<br>' +
         response.message
     )
 };
-
