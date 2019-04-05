@@ -4,7 +4,7 @@ const jsFunc = require('./function.js');
 
 //endpoint this has to be correlated with cloudbuild.yml
 exports.procRequest = (req, res) => {
-    let message = 'Hello Javascript World!<br>Pushed from Github<br>' +
+    let message = 'Hello Javascript World!<br>' +
         'Not yet with Kotlin :-(<br>' +
         'But added the Includes:-(<br>' +
         'req.query.message: ' + req.query.message + '<br>' +
@@ -17,7 +17,7 @@ exports.procRequest = (req, res) => {
 };
 
 exports.procBody = (req, res) => {
-    let message = 'Hello Javascript World!<br>Pushed from Github<br>' +
+    let message = 'Hello Javascript World!<br>' +
         'Not yet with Kotlin :-(<br>' +
         'But added the Includes:-(<br>' +
         'req.query.message: ' + req.query.message + '<br>' +

@@ -7,12 +7,12 @@ module.exports = this['systemkern-gcp-test-project'] = function (_, Kotlin) {
   var trimMargin = Kotlin.kotlin.text.trimMargin_rjktp$;
     var Kind_CLASS = Kotlin.Kind.CLASS;
   function processRequest(req, res) {
-      var message = trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '    ');
+      var message = trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |req:               ' + req.toString() + '<br>' + '\n' + '        |req.query:         ' + req.query.toString() + '<br>' + '\n' + '        |req.body:          ' + req.body.toString() + '<br>' + '\n' + '    ');
     res.status(200).send(message);
   }
 
     function processBody(body) {
-        return new Response(200, trimMargin('\n' + '        |Pushed from Github<br>' + '\n' + '        |body: ' + body + '\n' + '        '));
+        return new Response(200, trimMargin('\n' + '        |Kotlin Response:<br>' + '\n' + '        |body: ' + body + '\n' + '        '));
     }
 
     function Response(code, message) {
