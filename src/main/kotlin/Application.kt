@@ -23,10 +23,11 @@ external val exports: dynamic
 external val console: dynamic
 
 fun main() {
+    println("Kotlin Main function was called")
     //endpoint this has to be correlated with cloudbuild.yml
     exports.procRequest = { req: dynamic, res: dynamic ->
         processRequest(req, res);
-    };
+    }
 }
 
 @JsName("processRequest")
