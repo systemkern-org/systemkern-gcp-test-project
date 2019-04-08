@@ -26,8 +26,17 @@ fun main() {
     println("Kotlin Main function was called")
     //endpoint this has to be correlated with cloudbuild.yml
     exports.procRequest = { req: dynamic, res: dynamic ->
-        processRequest(req, res);
+        processRequest(req, res)
     }
+    exports.procRequest = { req: dynamic, res: dynamic ->
+        val response = processBody(req.body);
+        res.status(200).send(
+            """<hr>Kotlin Response:
+                ${response.message}
+            """.trimIndent()
+        )
+    }
+    println("Kotlin Main function finished")
 }
 
 @JsName("processRequest")

@@ -100,7 +100,7 @@ task assembleWeb(type: Sync) {
     }
     from compileKotlin2Js.destinationDir into "${projectDir}/web"
     from sourceSets.main.resources.srcDirs into "${projectDir}/web"
-    from 'src/main/javascript' into "${projectDir}/web"
+    //from 'src/main/javascript' into "${projectDir}/web"
 
     dependsOn classes
 }
