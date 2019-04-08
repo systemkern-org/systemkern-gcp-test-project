@@ -18,7 +18,7 @@ buildscript {
         maven { url "https://kotlin.bintray.com/kotlinx" }
         maven { url "https://kotlin.bintray.com/kotlin-dev" }
         maven { url 'http://nexus.acompany.ch/content/groups/public' }
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://plugins.gradle.org/m2/" } //moowork
     }
 
     dependencies {
@@ -51,7 +51,6 @@ dependencies {
     //testCompile "io.kotlintest:kotlintest:$kotlinVersion"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
     testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlinVersion"
-
 }
 
 compileKotlin2Js.kotlinOptions {
@@ -59,7 +58,7 @@ compileKotlin2Js.kotlinOptions {
 
 
 [compileKotlin2Js, compileTestKotlin2Js]*.configure {
-//    kotlinOptions.moduleKind = "commonjs"
+    kotlinOptions.moduleKind = "commonjs"
 }
 
 task populateNodeModules(type: Copy, dependsOn: compileKotlin2Js) {

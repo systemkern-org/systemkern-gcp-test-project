@@ -1,5 +1,4 @@
 external val exports: dynamic
-external fun require(module: String): dynamic
 external val console: dynamic
 
 @JsName("processRequest")
@@ -40,7 +39,7 @@ fun processBody(body: dynamic): Response {
         """.trimMargin())
     }
 
-    console.log("body: $body parsed to $data")
+    console.log("body: $body parsed to kotlin $data")
 
     return Response(
         """\n
