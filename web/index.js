@@ -12,17 +12,17 @@
   }
   function main$lambda_0(req, res) {
     var response = processBody(req.body);
-    return res.status(200).send(trimIndent('<hr>Kotlin Response:' + '\n' + '                ' + response.message + '\n' + '            '));
+    return res.status(200).send(trimIndent('<hr>Pure Kotlin Response:' + '\n' + '                ' + response.message + '\n' + '            '));
   }
   function main() {
     println('Kotlin Main function was called');
     exports.procRequest = main$lambda;
-    exports.procRequest = main$lambda_0;
+    exports.procBody = main$lambda_0;
     println('Kotlin Main function finished');
   }
   function processRequest(req, res) {
     var str = req.body.message;
-    var message = trimMargin('\\' + 'n' + '\n' + '        |Kotlin Response:' + '\n' + '        |req:               ' + req.toString() + '\n' + '        |req.query:         ' + req.query.toString() + '\n' + '        |req.body:          ' + req.body.toString() + '\n' + '        |req.body string:   ' + JSON.stringify(req.body) + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '\n' + '        |Kotlin String:     ' + str + '\n' + '    ');
+    var message = trimMargin('\\' + 'n' + '\n' + '        |Pure Kotlin Response:' + '\n' + '        |req:               ' + req.toString() + '\n' + '        |req.query:         ' + req.query.toString() + '\n' + '        |req.body:          ' + req.body.toString() + '\n' + '        |req.body string:   ' + JSON.stringify(req.body) + '\n' + '        |req.body.message:  ' + req.body.message.toString() + '\n' + '        |Kotlin String:     ' + str + '\n' + '    ');
     res.status(200).send(message);
   }
   function processBody(body) {

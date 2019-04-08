@@ -31,7 +31,7 @@ fun main() {
     exports.procBody = { req: dynamic, res: dynamic ->
         val response = processBody(req.body);
         res.status(200).send(
-            """<hr>Kotlin Response:
+            """<hr>Pure Kotlin Response:
                 ${response.message}
             """.trimIndent()
         )
@@ -43,7 +43,7 @@ fun main() {
 fun processRequest(req: dynamic, res: dynamic) {
     val str: String = req.body.message
     val message = """\n
-        |Kotlin Response:
+        |Pure Kotlin Response:
         |req:               $req
         |req.query:         ${req.query}
         |req.body:          ${req.body}
