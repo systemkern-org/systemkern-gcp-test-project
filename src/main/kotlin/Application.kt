@@ -28,7 +28,7 @@ fun main() {
     exports.procRequest = { req: dynamic, res: dynamic ->
         processRequest(req, res)
     }
-    exports.procRequest = { req: dynamic, res: dynamic ->
+    exports.procBody = { req: dynamic, res: dynamic ->
         val response = processBody(req.body);
         res.status(200).send(
             """<hr>Kotlin Response:
