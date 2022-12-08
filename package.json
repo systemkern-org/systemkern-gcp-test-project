@@ -4,7 +4,7 @@
   "description": "GCP Deployment Test Project",
   "main": "node/index.js",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "kotlin": "^1.3.21",
     "qunit": "^2.9.2",
     "qunitjs": "^2.4.1"
